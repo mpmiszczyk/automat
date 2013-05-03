@@ -1,0 +1,11 @@
+TODO liczenie kolejnych itereacji automatu
+TODO rysowanie liczonego automatu
+TODO ustawianie reguły
+TODO reguła może być przedstawiona jako zwykła liczba, lub jako binarny ciąg pomniejszych regół
+TODO możliwość zminany reguły pomiędzy iteracjami
+TODO możliwość zmiany wielkości pola pomiędzy iteracjami
+TODO możliwość usatawieni nowych wartości pól dla kolejnej iteracji
+TODO zatrzymywanie i wznawianie pętli iteracji
+TODO rozpozanwanie stanów stabilnych == powtarzających się ciągów iteracji
+TODO automatyczne zmienianie regóły i/lub losowe inicjalizowanie nowych pól po stabilizacji
+TODO kolorowanie wyświetlanego automatu w zależności od reguły
