@@ -55,6 +55,10 @@ class Cells( ):
 
 
 class Rule( ):
+   # def resolve(self, cells):
+   #    pass
+
+
    pass
 
 
