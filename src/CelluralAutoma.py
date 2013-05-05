@@ -41,6 +41,11 @@ class Cells( ):
 
 
    def neighbors_of (self, key):
+      if key == 0:
+         return [self.cells[-1],
+                 self.cells[0],
+                 self.cells[1]]
+
       return self.cells[key - 1: key + 2]
 
 
