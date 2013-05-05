@@ -12,7 +12,6 @@ class TestCellularCalculation( TestCase ):
 
    def test_new_cells_have_same_size_as_the_old_ones (self):
       self.rule.resolve = Mock( )
-      self.rule.resolve.return_value = True
 
       self.new_cells = calculate_next_state( self.cells, self.rule )
 
@@ -20,8 +19,7 @@ class TestCellularCalculation( TestCase ):
 
 
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
-      self.rule.resolve = Mock( )
-      self.rule.resolve.return_value = True
+      self.rule.resolve = Mock( return_value=True )
 
       # for each cell in cells
       # pass cell naigbours to rule
