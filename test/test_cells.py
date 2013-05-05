@@ -89,5 +89,3 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( neighbours[1], self.cells[-1] )
       self.assertEqual( neighbours[2], self.cells[0] )
 
-
-

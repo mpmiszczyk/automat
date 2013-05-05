@@ -1,14 +1,15 @@
 from unittest import TestCase
-from unittest.case import skip
 from CelluralAutoma import Cells, Rule, calculate_next_state
-# from mock import MagicMock
+from mock import Mock
 
 
 class TestCellularCalculation( TestCase ):
-   @skip( "to be implemented" )
    def test_creating_interface (self):
       cells = Cells( )
       rule = Rule( )
+
+      rule.resolve = Mock( )
+      rule.resolve.return_value( True )
 
       # for each cell in cells
       # pass cell naigbours to rule
@@ -17,6 +18,8 @@ class TestCellularCalculation( TestCase ):
 
       new_cells = calculate_next_state( cells, rule )
 
-      self.fail( "?no lower logic to test?" )
+      for cell in new_cells:
+         self.assertEqual( cell, True )
+
 
 
