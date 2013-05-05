@@ -82,4 +82,12 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( neighbours[2], self.cells[1] )
 
 
+   def test_handling_neighbours_of_first_element (self):
+      neighbours = self.cells.neighbors_of( self.cells.size( ) - 1 )
+
+      self.assertEqual( neighbours[0], self.cells[-2] )
+      self.assertEqual( neighbours[1], self.cells[-1] )
+      self.assertEqual( neighbours[2], self.cells[0] )
+
+
 
