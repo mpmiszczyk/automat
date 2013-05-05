@@ -5,33 +5,31 @@ from random import randint
 
 
 class TestCellularCalculation( TestCase ):
+   def setUp (self):
+      self.cells = Cells( randint( 3, 14 ) )
+      self.rule = Rule( )
+
+
    def test_new_cells_have_same_size_as_the_old_ones (self):
-      cells = Cells( randint( 3, 14 ) )
-      rule = Rule( )
+      self.rule.resolve = Mock( )
+      self.rule.resolve.return_value = True
 
-      rule.resolve = Mock( )
-      rule.resolve.return_value = True
+      self.new_cells = calculate_next_state( self.cells, self.rule )
 
-      new_cells = calculate_next_state( cells, rule )
-
-      self.assertEqual( new_cells.size( ), cells.size( ) )
+      self.assertEqual( self.new_cells.size( ), self.cells.size( ) )
 
 
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
-      cells = Cells( )
-      rule = Rule( )
-
-      rule.resolve = Mock( )
-      rule.resolve.return_value = True
+      self.rule.resolve = Mock( )
+      self.rule.resolve.return_value = True
 
       # for each cell in cells
       # pass cell naigbours to rule
       # rule returns one cell stage
-      #
 
-      new_cells = calculate_next_state( cells, rule )
+      self.new_cells = calculate_next_state( self.cells, self.rule )
 
-      for cell in new_cells:
+      for cell in self.new_cells:
          self.assertEqual( cell, True )
 
 
