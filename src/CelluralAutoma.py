@@ -41,7 +41,7 @@ class Cells( ):
 
 
    def neighbors_of (self, key):
-      pass
+      return self.cells[key - 1: key + 2]
 
 
 def Rule ():
