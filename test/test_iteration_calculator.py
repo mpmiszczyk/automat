@@ -17,7 +17,7 @@ class TestCellularCalculation( TestCase ):
 
 
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
-      self.rule.resolve = Mock( return_value=True )
+      self.rule.resolve.return_value = True
 
       # for each cell in cells
       # pass cell naigbours to rule
