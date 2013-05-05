@@ -54,12 +54,12 @@ class Cells( ):
       return self.cells[key - 1: key + 2]
 
 
-def Rule ():
+class Rule( ):
    pass
 
 
 def calculate_next_state (cells, rule):
-   newCells = Cells( )
+   newCells = Cells( cells.size( ) )
    for i in range( 0, cells.size( ) ):
       newCells[i] = rule.resolve( cells.neighbors_of( i ) )
 
