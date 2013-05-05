@@ -7,7 +7,7 @@ from random import randint
 class TestCellularCalculation( TestCase ):
    def setUp (self):
       self.cells = Cells( randint( 3, 14 ) )
-      self.rule = Rule( )
+      self.rule = Mock( spec=Rule )
 
 
    def test_new_cells_have_same_size_as_the_old_ones (self):
