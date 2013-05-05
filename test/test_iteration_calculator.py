@@ -11,8 +11,6 @@ class TestCellularCalculation( TestCase ):
 
 
    def test_new_cells_have_same_size_as_the_old_ones (self):
-      # self.rule.resolve = Mock( )
-
       self.new_cells = calculate_next_state( self.cells, self.rule )
 
       self.assertEqual( self.new_cells.size( ), self.cells.size( ) )

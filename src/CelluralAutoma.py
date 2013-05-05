@@ -55,11 +55,8 @@ class Cells( ):
 
 
 class Rule( ):
-   # def resolve(self, cells):
-   #    pass
-
-
-   pass
+   def resolve (self, cells):
+      pass
 
 
 def calculate_next_state (cells, rule):
