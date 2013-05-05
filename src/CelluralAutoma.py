@@ -32,6 +32,10 @@ class Cells( ):
          self.cells.append( False )
 
 
+   def __iter__ (self):
+      return self.cells.__iter__( )
+
+
    def size (self):
       return self._size
 

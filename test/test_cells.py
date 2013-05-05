@@ -28,7 +28,7 @@ class TestCells( TestCase ):
    def test_cells_outside_of_size_do_not_change_cells_size (self):
       cells = Cells( 5 )
 
-      cells[10]
+      _ = cells[10]
       self.assertEqual( cells.size( ), 5 )
 
 
@@ -43,4 +43,15 @@ class TestCells( TestCase ):
       self.assertEqual( cells.size( ), 11 )
       self.assertIs( cells[10], some )
 
+
+class TestGettingNeighbors( TestCase ):
+   def setUp (self):
+      self.cells = Cells( 5 )
+
+      for i in range( 0, 5 ):
+         self.cells[i] = Some( )
+
+
+   def test_should_be_able_to_get_neighbours (self):
+      self.assertIs( self.cells[0], self.cells[1] )
 
