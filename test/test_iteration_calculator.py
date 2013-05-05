@@ -17,12 +17,12 @@ class TestCellularCalculation( TestCase ):
       self.assertEqual( new_cells.size( ), cells.size( ) )
 
 
-   def test_creating_interface (self):
+   def test_new_value_depends_on_value_returned_by_rule_resolve (self):
       cells = Cells( )
       rule = Rule( )
 
       rule.resolve = Mock( )
-      rule.resolve.return_value( True )
+      rule.resolve.return_value = True
 
       # for each cell in cells
       # pass cell naigbours to rule
