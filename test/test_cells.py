@@ -53,5 +53,8 @@ class TestGettingNeighbors( TestCase ):
 
 
    def test_should_be_able_to_get_neighbours (self):
-      self.assertIs( self.cells[0], self.cells[1] )
+      neighbours = self.cells.neighbors_of( 1 )
+
+      self.assertEqual( len( neighbours ), 3 )
+
 
