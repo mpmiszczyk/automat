@@ -1,7 +1,6 @@
 from unittest import TestCase
 from unittest.case import skip
-from Calculator import calculate_next_state
-from CelluralAutoma import Cells, Rule
+from CelluralAutoma import Cells, Rule, calculate_next_state
 # from mock import MagicMock
 
 
