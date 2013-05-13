@@ -15,6 +15,25 @@ class TestRule( TestCase ):
       self.assertEqual( rule.resolve( trueNeighbour ), False )
 
 
+   def test_rule_for_more_complex_example (self):
+      rule = Rule( 22 )
+
+      neighbours = [True, True, True]
+      self.assertEqual( False, rule.resolve( neighbours ) )
+
+      neighbours = [True, False, False]
+      self.assertEqual( True, rule.resolve( neighbours ) )
+
+      neighbours = [False, True, False]
+      self.assertEqual( True, rule.resolve( neighbours ) )
+
+      neighbours = [False, True, True]
+      self.assertEqual( False, rule.resolve( neighbours ) )
+
+      neighbours = [True, True, False]
+      self.assertEqual( False, rule.resolve( neighbours ) )
+
+
    def test_creating_rules_gives_eight_elements_tuple (self):
       rules = create_rules_from( 0 )
 
@@ -46,6 +65,7 @@ class TestRule( TestCase ):
             self.assertTrue( rule[i] )
          else:
             self.assertFalse( rule[i] )
+
 
 
    def test_changing_cells_to_number_from_zero (self):
