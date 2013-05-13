@@ -54,9 +54,25 @@ class Cells( ):
       return self.cells[key - 1: key + 2]
 
 
+def create_rules_from (number):
+   return {}
+
+
 class Rule( ):
+   def __init__ (self, number):
+      self.set_number( number )
+
+
    def resolve (self, cells):
-      pass
+      for previous, output in self._rules:
+         if cells == previous:
+            return output
+      return False
+
+
+   def set_number (self, number):
+      self._number = number
+      self._rules = create_rules_from( number )
 
 
 def calculate_next_state (cells, rule):
