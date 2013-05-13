@@ -98,7 +98,7 @@ class Rule( ):
 
 def calculate_next_state (cells, rule):
    newCells = Cells( cells.size( ) )
-   for i in range( 0, cells.size( ) ):
+   for i in range( cells.size( ) ):
       newCells[i] = rule.resolve( cells.neighbors_of( i ) )
 
    return newCells

@@ -6,7 +6,8 @@ from random import randint
 
 class TestCellularCalculation( TestCase ):
    def setUp (self):
-      self.cells = Cells( randint( 3, 14 ) )
+      self.automa_size = randint( 3, 14 )
+      self.cells = Cells( self.automa_size )
       self.rule = Mock( spec=Rule )
 
 
@@ -18,11 +19,14 @@ class TestCellularCalculation( TestCase ):
 
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
       self.rule.resolve.return_value = True
-
       self.new_cells = calculate_next_state( self.cells, self.rule )
-
       for cell in self.new_cells:
          self.assertEqual( cell, True )
+
+      self.rule.resolve.return_value = False
+      self.new_cells = calculate_next_state( self.cells, self.rule )
+      for cell in self.new_cells:
+         self.assertEqual( cell, False )
 
 
 
