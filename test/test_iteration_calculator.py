@@ -28,5 +28,3 @@ class TestCellularCalculation( TestCase ):
       for cell in self.new_cells:
          self.assertEqual( cell, False )
 
-
-

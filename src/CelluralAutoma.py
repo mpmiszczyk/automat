@@ -25,6 +25,17 @@ class Cells( ):
       self.cells[key] = value
 
 
+   def __str__ (self):
+      string = ""
+      for cell in self.cells:
+         if cell:
+            string += "#"
+         else:
+            string += "_"
+
+      return string
+
+
    def append_empty_cells_to (self, key):
       oldSize = self._size
       self._size = key + 1
@@ -57,11 +68,11 @@ class Cells( ):
 def create_rules_from (number):
    rules = dict( )
 
-   reprezentaion = bin( number )[2:]
+   representation = bin( number )[2:]
 
    for i in range( 8 ):
-      if i < len( reprezentaion ):
-         rules[i] = ( "1" == reprezentaion[-1 - i])
+      if i < len( representation ):
+         rules[i] = ( "1" == representation[-1 - i])
       else:
          rules[i] = False
 
@@ -102,3 +113,24 @@ def calculate_next_state (cells, rule):
       newCells[i] = rule.resolve( cells.neighbors_of( i ) )
 
    return newCells
+
+
+def cells_from_int_array ( array):
+   cells = Cells( len( array ) )
+
+   for i in range( len( array ) ):
+      cells[i] = bool( array[i] )
+
+   return cells
+
+
+def cells_from_string ( string):
+   cells = Cells( len( string ) )
+
+   for i in range( len( string ) ):
+      cells[i] = ( string[i] == "#" )
+
+   return cells
+
+
+

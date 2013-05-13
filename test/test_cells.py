@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CelluralAutoma import Cells
+from CelluralAutoma import Cells, cells_from_int_array, cells_from_string
 
 
 class Some( object ):
@@ -88,4 +88,34 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( neighbours[0], self.cells[-2] )
       self.assertEqual( neighbours[1], self.cells[-1] )
       self.assertEqual( neighbours[2], self.cells[0] )
+
+
+   def test_pretty_printing_empty_cells (self):
+      cells = Cells( 5 )
+      self.assertEqual( "_____", cells.__str__( ) )
+
+
+   def test_pretty_printing_cells (self):
+      cells = Cells( 5 )
+      cells[1] = True
+      cells[-1] = True
+      self.assertEqual( "_#__#", str( cells ) )
+
+
+   def test_creating_cells_from_int_array (self):
+      cells = cells_from_int_array( [0, 1, 2, 3, 0, 0] )
+
+      self.assertEqual( "_###__", str( cells ) )
+
+
+   def test_creating_cells_from_string (self):
+      cells = cells_from_string( "__#" )
+
+      self.assertEqual( False, cells[0] )
+      self.assertEqual( False, cells[1] )
+      self.assertEqual( True, cells[2] )
+
+
+
+
 
