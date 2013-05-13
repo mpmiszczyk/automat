@@ -57,8 +57,13 @@ class Cells( ):
 def create_rules_from (number):
    rules = dict( )
 
+   reprezentaion = bin( number )[2:]
+
    for i in range( 8 ):
-      rules[i] = False
+      if i < len( reprezentaion ):
+         rules[i] = ( "1" == reprezentaion[-1 - i])
+      else:
+         rules[i] = False
 
    return rules
 
