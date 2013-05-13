@@ -58,7 +58,7 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( len( neighbours ), 3 )
 
 
-   def test_should_be_able_to_get_right_neighbours (self):
+   def test_should_be_able_to_get_right_neighbours1 (self):
       neighbours = self.cells.neighbors_of( 1 )
 
       self.assertEqual( neighbours[0], self.cells[0] )
@@ -66,7 +66,7 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( neighbours[2], self.cells[2] )
 
 
-   def test_should_be_able_to_get_right_neighbours (self):
+   def test_should_be_able_to_get_right_neighbours2 (self):
       neighbours = self.cells.neighbors_of( 2 )
 
       self.assertEqual( neighbours[0], self.cells[1] )
@@ -82,7 +82,7 @@ class TestGettingNeighbors( TestCase ):
       self.assertEqual( neighbours[2], self.cells[1] )
 
 
-   def test_handling_neighbours_of_first_element (self):
+   def test_handling_neighbours_of_last_element (self):
       neighbours = self.cells.neighbors_of( self.cells.size( ) - 1 )
 
       self.assertEqual( neighbours[0], self.cells[-2] )
