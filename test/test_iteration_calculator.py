@@ -19,10 +19,6 @@ class TestCellularCalculation( TestCase ):
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
       self.rule.resolve.return_value = True
 
-      # for each cell in cells
-      # pass cell naigbours to rule
-      # rule returns one cell stage
-
       self.new_cells = calculate_next_state( self.cells, self.rule )
 
       for cell in self.new_cells:
