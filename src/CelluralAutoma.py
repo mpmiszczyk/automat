@@ -55,7 +55,25 @@ class Cells( ):
 
 
 def create_rules_from (number):
-   return {}
+   rules = dict( )
+
+   for i in range( 8 ):
+      rules[i] = False
+
+   return rules
+
+
+def cells_to_number (cells):
+   cell_values = [False, True]
+   i = 0
+
+   for first in cell_values:
+      for second in cell_values:
+         for third in cell_values:
+            if cells == [first, second, third]:
+               return i
+            i += 1
+   return 0
 
 
 class Rule( ):
@@ -64,10 +82,8 @@ class Rule( ):
 
 
    def resolve (self, cells):
-      for previous, output in self._rules:
-         if cells == previous:
-            return output
-      return False
+      number = cells_to_number( cells )
+      return self._rules[number]
 
 
    def set_number (self, number):
