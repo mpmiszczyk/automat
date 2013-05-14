@@ -33,4 +33,9 @@ ttk.Label( main_frame, text="feet" ).grid( column=3, row=1, sticky=W )
 ttk.Label( main_frame, text="is equivalent to" ).grid( column=1, row=2, sticky=E )
 ttk.Label( main_frame, text="meters" ).grid( column=3, row=2, sticky=W )
 
+for child in main_frame.winfo_children( ): child.grid_configure( padx=5, pady=5 )
+
+feet_entry.focus( )
+top.bind( '<Return>', calculate )
+
 top.mainloop( )
