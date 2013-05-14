@@ -133,4 +133,13 @@ def cells_from_string ( string):
    return cells
 
 
+if __name__ == "__main__":
+   cells = Cells( 100 )
+   cells[50] = True
+   rule = Rule( 89 )
+
+   for _ in range( 100 ):
+      print( cells )
+      cells = calculate_next_state( cells, rule )
+
 
