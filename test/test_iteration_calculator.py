@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CelluralAutoma import Cells, Rule, calculate_next_state
+from CelluralAutoma import Cells, Rule, calculate_next_state, cells_from_string
 from mock import Mock
 from random import randint
 from test_cells import Some
@@ -29,5 +29,21 @@ class TestCellularCalculation( TestCase ):
          self.assertEqual( cell, same )
 
 
+   def test_few_iterations_of_cells_rule_90_Sierpinski (self):
+      cells = cells_from_string( "________#________" )
+      rule = Rule( 90 )
 
-         # def test_few_iterations_of_cells(self):
+      newCells = calculate_next_state( cells, rule )
+      self.assertEqual( "_______#_#_______", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "______#___#______", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "_____#_#_#_#_____", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "____#_______#____", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "___#_#_____#_#___", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "__#___#___#___#__", str( newCells ) )
+      newCells = calculate_next_state( newCells, rule )
+      self.assertEqual( "_#_#_#_#_#_#_#_#_", str( newCells ) )
