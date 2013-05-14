@@ -1,4 +1,3 @@
-TODO liczenie kolejnych itereacji automatu
 TODO rysowanie liczonego automatu
 TODO ustawianie reguły
 TODO reguła może być przedstawiona jako zwykła liczba, lub jako binarny ciąg pomniejszych regół
