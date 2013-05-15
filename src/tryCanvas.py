@@ -11,7 +11,7 @@ def xy (event):
 
 def addLine (event):
    global lastx, lasty
-   canvas.create_line( lastx, lasty, event.x, event.y )
+   canvas.create_line( lastx, lasty, event.x, event.y, fill='red', width=3 )
    lastx, lasty = event.x, event.y
 
 
