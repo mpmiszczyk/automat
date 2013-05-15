@@ -27,10 +27,11 @@ def calculate (*args):
       pass
 
 
-ttk.Button( main_frame, text="Calculate", command=calculate ).grid( column=2, row=3, sticky=(W, E) )
+ttk.Button( main_frame, text="Calculate longer text, since its grid", command=calculate ).grid( column=2, row=3,
+                                                                                                sticky=(W, E) )
 
 ttk.Label( main_frame, text="feet" ).grid( column=3, row=1, sticky=W )
-ttk.Label( main_frame, text="is equivalent to" ).grid( column=1, row=2, sticky=E )
+ttk.Label( main_frame, text="is equivalent to \n two line example, since its grid" ).grid( column=1, row=2, sticky=E )
 ttk.Label( main_frame, text="meters" ).grid( column=3, row=2, sticky=W )
 
 for child in main_frame.winfo_children( ): child.grid_configure( padx=5, pady=5 )
@@ -39,3 +40,5 @@ feet_entry.focus( )
 top.bind( '<Return>', calculate )
 
 top.mainloop( )
+
+print( "after the loop" )
