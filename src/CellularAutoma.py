@@ -14,7 +14,7 @@ class Cells( ):
 
 
    def __getitem__ (self, place):
-      if place < self._size:
+      if place < min( len( self.cells ), self._size ):
          return self.cells[place]
 
       else:
@@ -144,9 +144,9 @@ def cells_from_string ( string):
 
 
 class Automata( ):
-   def __init__ (self, cells, rule):
-      self.rows = 10
-      self.columns = 10
+   def __init__ (self, cells, rule, rows=100, colums=100):
+      self.rows = rows
+      self.columns = colums
 
       self.rule = rule
       self.cells = []
