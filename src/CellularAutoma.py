@@ -51,11 +51,14 @@ class Cells( ):
 
 
    def __len__ (self):
-      return len( self.cells )
-
-
-   def size (self):
       return self._size
+
+
+   # def size (self):
+   #    return self._size
+
+   def set_size (self, new_size):
+      self._size = new_size
 
 
    def neighbors_of (self, key):
@@ -64,7 +67,7 @@ class Cells( ):
                  self.cells[0],
                  self.cells[1]]
 
-      if key == self.size( ) - 1:
+      if key == len( self ) - 1:
          return [self.cells[-2],
                  self.cells[-1],
                  self.cells[0]]
@@ -115,8 +118,8 @@ class Rule( ):
 
 
 def calculate_next_state (cells, rule):
-   newCells = Cells( cells.size( ) )
-   for i in range( cells.size( ) ):
+   newCells = Cells( len( cells ) )
+   for i in range( len( cells ) ):
       newCells[i] = rule.resolve( cells.neighbors_of( i ) )
 
    return newCells
@@ -155,6 +158,9 @@ class Automata( ):
 
 
    def add (self, cells):
+      if len( cells ) != self.columns:
+         cells.set_size( self.columns )
+
       if len( self.cells ) >= self.rows:
          self.cells.pop( 0 )
 
