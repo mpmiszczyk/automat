@@ -142,13 +142,23 @@ def cells_from_string ( string):
 
 class Automata( ):
    def __init__ (self, cells, rule):
-      self.cells = []
-      self.cells.append( cells )
+      self.rows = 10
+      self.columns = 10
+
       self.rule = rule
+      self.cells = []
+      self.add( cells )
 
 
    def iterate_cells (self):
-      self.cells.append( calculate_next_state( self.cells[-1], self.rule ) )
+      self.add( calculate_next_state( self.cells[-1], self.rule ) )
+
+
+   def add (self, cells):
+      if len( self.cells ) >= self.rows:
+         self.cells.pop( 0 )
+
+      self.cells.append( cells )
 
 
 if __name__ == "__main__":
