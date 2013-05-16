@@ -34,8 +34,7 @@ def draw (cells, canvas):
          canvas.create_rectangle( ( start, 0, start + size, size),
                                   fill=rectangle_color,
                                   outline=rectangle_color,
-                                  activefill='black' )
-         #TODO add iner padding
+                                  activefill='black' )   # TODO add inner padding
 
 
 def iterate_cells ():
@@ -47,7 +46,7 @@ def iterate_cells ():
 def task ():
    iterate_cells( )
    if bind_state:
-      root.after( 333, task )  # reschedule event in half seconds
+      root.after( 100, task )
 
 
 bind_state = True
