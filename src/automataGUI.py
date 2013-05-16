@@ -68,5 +68,10 @@ def start_stop (args):
 root.bind( "<space>", start_stop )
 root.bind( "<Control-r>", automata.new_random_rule )
 
+root.bind( "<Control-p>", automata.increase_column_size )
+root.bind( "<Control-o>", automata.decrease_column_size )
+root.bind( "<Control-j>", automata.increase_row_size )
+root.bind( "<Control-u>", automata.decrease_row_size )
+
 root.after( TIME_STEP, task )
 root.mainloop( )

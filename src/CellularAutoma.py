@@ -161,7 +161,7 @@ class Automata( ):
       if len( cells ) != self.columns:
          cells.set_size( self.columns )
 
-      if len( self.cells ) >= self.rows:
+      while len( self.cells ) >= self.rows:
          self.cells.pop( 0 )
 
       self.cells.append( cells )
@@ -178,6 +178,30 @@ class Automata( ):
       number = min( number, 255 )
 
       self.rule = Rule( number )
+
+
+   def increase_column_size (self, args):
+      self.columns += 1
+
+
+   def decrease_column_size (self, args):
+      self.columns -= 1
+
+
+   def set_column_size ( self, size):
+      self.columns = size
+
+
+   def decrease_row_size (self, args):
+      self.rows -= 1
+
+
+   def increase_row_size (self, args):
+      self.rows += 1
+
+
+   def set_row_size ( self, size):
+      self.rows = size
 
 
 if __name__ == "__main__":
