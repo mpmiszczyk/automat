@@ -12,7 +12,8 @@ main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
 canvas = Canvas( main_frame )
 canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
 
-canvas.create_rectangle( (1, 1, 40, 40), fill='red' )
+rectangle_color = 'red'
+canvas.create_rectangle( (1, 1, 40, 40), fill=rectangle_color, outline=rectangle_color )
 
 
 def task ():
