@@ -14,7 +14,7 @@ main_frame.columnconfigure( 0, weight=1 )
 main_frame.rowconfigure( 0, weight=1 )
 # main_frame.pack( side='right', expand=1 )
 
-canvas = Canvas( main_frame )
+canvas = Canvas( main_frame )  #TODO: maybe options like ( .. , width=10000, height=10000)
 canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
 # canvas.pack( expand=1 )
 
