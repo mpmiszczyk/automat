@@ -77,8 +77,14 @@ root.bind( "<Control-o>", automata.decrease_column_size )
 root.bind( "<Control-j>", automata.increase_row_size )
 root.bind( "<Control-u>", automata.decrease_row_size )
 
-options_frame = ttk.Notebook( main_frame )
-options_frame.grid( column=0, row=1, sticky=(N, E, W, S) )
+options_notebook = ttk.Notebook( main_frame )
+options_notebook.grid( column=0, row=1, sticky=(N, E, W, S) )
+
+rule_frame = ttk.Frame( options_notebook )
+options_notebook.add( rule_frame, text="Zasada" )
+
+cells_frame = ttk.Frame( options_notebook )
+options_notebook.add( cells_frame, text="Komórki" )
 
 root.after( TIME_STEP, task )
 root.mainloop( )
