@@ -21,7 +21,8 @@ rectangle_color = 'red'
 
 # TODO random initialize
 automata = Automata( cells_from_string( "____#__#__#______###__##_#" ),
-                     Rule( 90 ) )
+                     Rule( 90 ),
+                     rows=50 )
 
 
 def draw (cells, canvas):
@@ -42,8 +43,7 @@ def draw (cells, canvas):
                                        column_offset + cell_size,
                                        row_offset + cell_size),
                                      fill=rectangle_color,
-                                     outline=rectangle_color,
-                                     activefill='black' )   # TODO add inner padding
+                                     outline=rectangle_color )   # TODO add inner padding
 
 
 def task ():
@@ -66,5 +66,7 @@ def start_stop (args):
 
 
 root.bind( "<space>", start_stop )
+root.bind( "<Control-r>", automata.new_random_rule )
+
 root.after( TIME_STEP, task )
 root.mainloop( )

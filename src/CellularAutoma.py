@@ -167,6 +167,12 @@ class Automata( ):
       self.cells.append( cells )
 
 
+   def new_random_rule (self, args):
+      number = random.randint( 0, 255 )
+      self.rule = Rule( number )
+      print( number )
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
