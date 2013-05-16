@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CelluralAutoma import Cells, cells_from_int_array, cells_from_string
+from CellularAutoma import Cells, cells_from_int_array, cells_from_string
 
 
 class Some( object ):

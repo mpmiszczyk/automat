@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CelluralAutoma import Rule, create_rules_from, cells_to_number
+from CellularAutoma import Rule, create_rules_from, cells_to_number
 
 
 class TestRule( TestCase ):
@@ -65,7 +65,6 @@ class TestRule( TestCase ):
             self.assertTrue( rule[i] )
          else:
             self.assertFalse( rule[i] )
-
 
 
    def test_changing_cells_to_number_from_zero (self):

@@ -1,6 +1,6 @@
 # from tkinter import *
 from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
-from CelluralAutoma import cells_from_string, Rule, calculate_next_state
+from CellularAutoma import cells_from_string, Rule, calculate_next_state
 
 
 root = Tk( )
@@ -22,7 +22,7 @@ rule = Rule( 90 )
 def draw (cells, canvas):
    """
 
-   :param cells: instance of :class:'CelluralAutoma.Cells'
+   :param cells: instance of :class:'CellularAutoma.Cells'
    :param canvas: instance of :class:'tkinter.Canvas'
    """
    size = 20

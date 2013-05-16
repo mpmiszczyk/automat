@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CelluralAutoma import Cells, Rule, calculate_next_state, cells_from_string
+from CellularAutoma import Cells, Rule, calculate_next_state, cells_from_string
 from mock import Mock
 from random import randint
 from test_cells import Some
