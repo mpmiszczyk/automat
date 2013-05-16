@@ -47,6 +47,10 @@ class Cells( ):
       return self.cells.__iter__( )
 
 
+   def __len__ (self):
+      return len( self.cells )
+
+
    def size (self):
       return self._size
 
