@@ -86,10 +86,11 @@ options_notebook.add( rule_frame, text="Zasada" )
 
 p = ttk.Panedwindow( rule_frame, orient=HORIZONTAL )
 p.grid( )
-f1 = ttk.Labelframe( p, text='1', width=100, height=100 )
-f2 = ttk.Labelframe( p, text='2', width=100, height=100 )
-p.add( f1 )
-p.add( f2 )
+
+for i in range( 8 ):
+   frame_label = str( i + 1 )
+   frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
+   p.add( frame )
 
 cells_frame = ttk.Frame( options_notebook )
 options_notebook.add( cells_frame, text="Komórki" )
