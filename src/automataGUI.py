@@ -1,5 +1,5 @@
 # from tkinter import *
-from tkinter import ttk, Tk, Canvas, ALL, N, W, E, S
+from tkinter import ttk, Tk, Canvas, ALL, N, W, E, S, HORIZONTAL
 from CellularAutoma import cells_from_string, Rule, Automata
 
 
@@ -81,7 +81,15 @@ options_notebook = ttk.Notebook( main_frame )
 options_notebook.grid( column=0, row=1, sticky=(N, E, W, S) )
 
 rule_frame = ttk.Frame( options_notebook )
+rule_frame.grid( )
 options_notebook.add( rule_frame, text="Zasada" )
+
+p = ttk.Panedwindow( rule_frame, orient=HORIZONTAL )
+p.grid( )
+f1 = ttk.Labelframe( p, text='1', width=100, height=100 )
+f2 = ttk.Labelframe( p, text='2', width=100, height=100 )
+p.add( f1 )
+p.add( f2 )
 
 cells_frame = ttk.Frame( options_notebook )
 options_notebook.add( cells_frame, text="Komórki" )
