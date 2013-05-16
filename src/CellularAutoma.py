@@ -158,9 +158,9 @@ def new_cells_with_one_true (size):
 
 
 class Automata( ):
-   def __init__ (self, cells, rule, rows=100, colums=100):
+   def __init__ (self, cells, rule, rows=100, columns=100):
       self.rows = rows
-      self.columns = colums
+      self.columns = columns
 
       self.rule = rule
       self.cells = []
