@@ -1,6 +1,6 @@
-from tkinter import *
-from tkinter import ttk
-from CelluralAutoma import cells_from_string
+# from tkinter import *
+from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
+from CelluralAutoma import cells_from_string, Rule, calculate_next_state
 
 
 root = Tk( )
@@ -16,6 +16,7 @@ canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
 rectangle_color = 'red'
 
 cells = cells_from_string( "____#__#__#______###__##_#" )
+rule = Rule( 90 )
 
 
 def draw (cells, canvas):
@@ -25,21 +26,27 @@ def draw (cells, canvas):
    :param canvas: instance of :class:'tkinter.Canvas'
    """
    size = 20
+   canvas.delete( ALL )
    for i in range( len( cells ) ):
       if cells[i]:
          start = i * size
          canvas.create_rectangle( ( start, 0, start + size, size),
                                   fill=rectangle_color,
-                                  outline=rectangle_color )
+                                  outline=rectangle_color,
+                                  activefill='black' )
          #TODO add iner padding
 
 
-draw( cells, canvas )
+def iterate_cells ():
+   global cells
+   draw( cells, canvas )
+   cells = calculate_next_state( cells, rule )
 
 
 def task ():
+   iterate_cells( )
    print( "automata" )
-   root.after( 500, task )  # reschedule event in half seconds
+   root.after( 100, task )  # reschedule event in half seconds
 
 
 root.after( 2000, task )
