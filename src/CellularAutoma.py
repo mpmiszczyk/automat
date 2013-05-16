@@ -140,6 +140,12 @@ def cells_from_string ( string):
    return cells
 
 
+class Automata( ):
+   def __init__ (self, cells, rule):
+      self.cells = cells
+      self.rule = rule
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
@@ -152,7 +158,5 @@ if __name__ == "__main__":
       cells = calculate_next_state( cells, rule )
 
    print( "Rule nr: " + str( random_int ) )
-
-
 
 

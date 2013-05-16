@@ -1,6 +1,6 @@
 # from tkinter import *
 from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
-from CellularAutoma import cells_from_string, Rule, calculate_next_state
+from CellularAutoma import cells_from_string, Rule, calculate_next_state, Automata
 
 
 root = Tk( )
@@ -18,6 +18,8 @@ rectangle_color = 'red'
 # TODO random initialize
 cells = cells_from_string( "____#__#__#______###__##_#" )
 rule = Rule( 90 )
+
+automata = Automata( cells, rule )
 
 
 def draw (cells, canvas):
