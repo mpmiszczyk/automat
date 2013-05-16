@@ -1,7 +1,18 @@
 from tkinter import *
+from tkinter import ttk
 
 
 root = Tk( )
+root.columnconfigure( 0, weight=1 )
+root.rowconfigure( 0, weight=1 )
+
+main_frame = ttk.Frame( root )
+main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
+
+canvas = Canvas( main_frame )
+canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
+
+canvas.create_rectangle( (1, 1, 40, 40), fill='red' )
 
 
 def task ():
