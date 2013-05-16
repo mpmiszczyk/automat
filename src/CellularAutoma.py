@@ -173,6 +173,13 @@ class Automata( ):
       print( number )
 
 
+   def new_number_rule (self, number):
+      number = max( 0, number )
+      number = min( number, 255 )
+
+      self.rule = Rule( number )
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
