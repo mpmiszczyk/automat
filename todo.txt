@@ -1,7 +1,5 @@
-TODO możliwość zminany reguły pomiędzy iteracjami
 TODO możliwość usatawieni nowych wartości pól dla kolejnej iteracji
 TODO kolorowanie wyświetlanego automatu w zależności od reguły
 TODO reguła może być przedstawiona jako zwykła liczba, lub jako binarny ciąg pomniejszych regół
-TODO możliwość zmiany wielkości pola pomiędzy iteracjami
 TODO automatyczne zmienianie regóły i/lub losowe inicjalizowanie nowych pól po stabilizacji
 TODO rozpozanwanie stanów stabilnych == powtarzających się ciągów iteracji
