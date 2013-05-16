@@ -68,6 +68,9 @@ def start_stop (args):
 root.bind( "<space>", start_stop )
 root.bind( "<Control-r>", automata.new_random_rule )
 
+root.bind( "<Control-e>", automata.new_random_cells )
+root.bind( "<Control-w>", automata.new_one_cell )
+
 root.bind( "<Control-p>", automata.increase_column_size )
 root.bind( "<Control-o>", automata.decrease_column_size )
 root.bind( "<Control-j>", automata.increase_row_size )

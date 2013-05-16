@@ -143,6 +143,20 @@ def cells_from_string ( string):
    return cells
 
 
+def new_random_cells (size):
+   cells = Cells( size )
+   for i in range( size ):
+      cells[i] = not bool( random.randint( 0, 3 ) )
+
+   return cells
+
+
+def new_cells_with_one_true (size):
+   cells = Cells( size )
+   cells[size // 2] = True
+   return cells
+
+
 class Automata( ):
    def __init__ (self, cells, rule, rows=100, colums=100):
       self.rows = rows
@@ -202,6 +216,14 @@ class Automata( ):
 
    def set_row_size ( self, size):
       self.rows = size
+
+
+   def new_random_cells (self, args):
+      self.add( new_random_cells( self.columns ) )
+
+
+   def new_one_cell (self, args):
+      self.add( new_cells_with_one_true( self.columns ) )
 
 
 if __name__ == "__main__":
