@@ -1,3 +1,6 @@
+import random
+
+
 class Cells( ):
    def __init__ (self, size=100):
       self._size = size
@@ -140,10 +143,16 @@ def cells_from_string ( string):
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
-   rule = Rule( 89 )
+
+   random_int = random.randint( 0, 100 )
+   rule = Rule( random_int )
 
    for _ in range( 100 ):
       print( cells )
       cells = calculate_next_state( cells, rule )
+
+   print( "Rule nr: " + str( random_int ) )
+
+
 
 
