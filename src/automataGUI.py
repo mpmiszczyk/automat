@@ -1,21 +1,22 @@
 # from tkinter import *
-from tkinter import ttk, Tk, Canvas, ALL
+from tkinter import ttk, Tk, Canvas, ALL, N, W, E, S
 from CellularAutoma import cells_from_string, Rule, Automata
 
 
 TIME_STEP = 100
 
 root = Tk( )
+# root.grid(baseHeight=100, baseWidth=100, widthInc=500, heightInc=500 )
 
 main_frame = ttk.Frame( root )
-# main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
-# main_frame.columnconfigure( 0, weight=1 )
-# main_frame.rowconfigure( 0, weight=1 )
-main_frame.pack( side='right', expand=1 )
+main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
+main_frame.columnconfigure( 0, weight=1 )
+main_frame.rowconfigure( 0, weight=1 )
+# main_frame.pack( side='right', expand=1 )
 
 canvas = Canvas( main_frame )
-# canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
-canvas.pack( expand=1 )
+canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
+# canvas.pack( expand=1 )
 
 rectangle_color = 'red'
 
@@ -75,6 +76,9 @@ root.bind( "<Control-p>", automata.increase_column_size )
 root.bind( "<Control-o>", automata.decrease_column_size )
 root.bind( "<Control-j>", automata.increase_row_size )
 root.bind( "<Control-u>", automata.decrease_row_size )
+
+options_frame = ttk.Notebook( main_frame )
+options_frame.grid( column=0, row=1, sticky=(N, E, W, S) )
 
 root.after( TIME_STEP, task )
 root.mainloop( )
