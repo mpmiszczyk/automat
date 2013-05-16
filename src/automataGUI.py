@@ -3,6 +3,8 @@ from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
 from CellularAutoma import cells_from_string, Rule, Automata
 
 
+TIME_STEP = 100
+
 root = Tk( )
 root.columnconfigure( 0, weight=1 )
 root.rowconfigure( 0, weight=1 )
@@ -26,7 +28,7 @@ def draw (cells, canvas):
    :param cells: instance of :class:'CellularAutoma.Cells'
    :param canvas: instance of :class:'tkinter.Canvas'
    """
-   cell_size = 20
+   cell_size = 5
    canvas.delete( ALL )
    for row_number in range( len( cells ) ):
       for cell_number in range( len( cells[row_number] ) ):
@@ -46,7 +48,7 @@ def task ():
    automata.iterate_cells( )
    draw( automata.cells, canvas )
    if bind_state:
-      root.after( 100, task )
+      root.after( TIME_STEP, task )
 
 
 bind_state = True
@@ -58,9 +60,9 @@ def start_stop (args):
       bind_state = False
    else:
       bind_state = True
-      root.after( 5, task )
+      root.after( TIME_STEP, task )
 
 
 root.bind( "<space>", start_stop )
-root.after( 5, task )
+root.after( TIME_STEP, task )
 root.mainloop( )
