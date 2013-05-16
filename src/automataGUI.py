@@ -26,12 +26,12 @@ def draw (cells, canvas):
    :param cells: instance of :class:'CellularAutoma.Cells'
    :param canvas: instance of :class:'tkinter.Canvas'
    """
-   size = 20
+   cell_size = 20
    canvas.delete( ALL )
    for i in range( len( cells ) ):
       if cells[i]:
-         start = i * size
-         canvas.create_rectangle( ( start, 0, start + size, size),
+         start = i * cell_size
+         canvas.create_rectangle( ( start, 0, start + cell_size, cell_size),
                                   fill=rectangle_color,
                                   outline=rectangle_color,
                                   activefill='black' )   # TODO add inner padding
