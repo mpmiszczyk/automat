@@ -45,9 +45,22 @@ def iterate_cells ():
 
 def task ():
    iterate_cells( )
-   print( "automata" )
-   root.after( 100, task )  # reschedule event in half seconds
+   if bind_state:
+      root.after( 333, task )  # reschedule event in half seconds
 
 
-root.after( 2000, task )
+bind_state = True
+
+
+def start_stop (args):
+   global bind_state
+   if bind_state:
+      bind_state = False
+   else:
+      bind_state = True
+      root.after( 5, task )
+
+
+root.bind( "<space>", start_stop )
+root.after( 5, task )
 root.mainloop( )
