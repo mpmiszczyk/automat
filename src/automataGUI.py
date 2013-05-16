@@ -1,6 +1,6 @@
 # from tkinter import *
 from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
-from CellularAutoma import cells_from_string, Rule, calculate_next_state, Automata
+from CellularAutoma import cells_from_string, Rule, Automata
 
 
 root = Tk( )
@@ -39,14 +39,9 @@ def draw (cells, canvas):
                                   activefill='black' )   # TODO add inner padding
 
 
-def iterate_cells ():
-   global cells
-   draw( cells, canvas )
-   cells = calculate_next_state( cells, rule )
-
-
 def task ():
-   iterate_cells( )
+   automata.iterate_cells( )
+   draw( automata.cells, canvas )
    if bind_state:
       root.after( 100, task )
 

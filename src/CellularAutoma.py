@@ -146,6 +146,10 @@ class Automata( ):
       self.rule = rule
 
 
+   def iterate_cells (self):
+      self.cells = calculate_next_state( self.cells, self.rule )
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
