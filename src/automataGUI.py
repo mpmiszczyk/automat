@@ -1,19 +1,21 @@
 # from tkinter import *
-from tkinter import ttk, Tk, N, W, E, S, Canvas, ALL
+from tkinter import ttk, Tk, Canvas, ALL
 from CellularAutoma import cells_from_string, Rule, Automata
 
 
 TIME_STEP = 100
 
 root = Tk( )
-root.columnconfigure( 0, weight=1 )
-root.rowconfigure( 0, weight=1 )
 
 main_frame = ttk.Frame( root )
-main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
+# main_frame.grid( column=0, row=0, sticky=(N, W, E, S) )
+# main_frame.columnconfigure( 0, weight=1 )
+# main_frame.rowconfigure( 0, weight=1 )
+main_frame.pack( side='right', expand=1 )
 
 canvas = Canvas( main_frame )
-canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
+# canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
+canvas.pack( expand=1 )
 
 rectangle_color = 'red'
 
