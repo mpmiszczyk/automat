@@ -16,10 +16,8 @@ canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
 rectangle_color = 'red'
 
 # TODO random initialize
-cells = cells_from_string( "____#__#__#______###__##_#" )
-rule = Rule( 90 )
-
-automata = Automata( cells, rule )
+automata = Automata( cells_from_string( "____#__#__#______###__##_#" ),
+                     Rule( 90 ) )
 
 
 def draw (cells, canvas):
