@@ -28,13 +28,18 @@ def draw (cells, canvas):
    """
    cell_size = 20
    canvas.delete( ALL )
-   for i in range( len( cells ) ):
-      if cells[i]:
-         start = i * cell_size
-         canvas.create_rectangle( ( start, 0, start + cell_size, cell_size),
-                                  fill=rectangle_color,
-                                  outline=rectangle_color,
-                                  activefill='black' )   # TODO add inner padding
+   for row_number in range( len( cells ) ):
+      for cell_number in range( len( cells[row_number] ) ):
+         if cells[row_number][cell_number]:
+            row_offset = row_number * cell_size
+            column_offset = cell_number * cell_size
+            canvas.create_rectangle( ( column_offset,
+                                       row_offset,
+                                       column_offset + cell_size,
+                                       row_offset + cell_size),
+                                     fill=rectangle_color,
+                                     outline=rectangle_color,
+                                     activefill='black' )   # TODO add inner padding
 
 
 def task ():
