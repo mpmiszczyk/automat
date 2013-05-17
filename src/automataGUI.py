@@ -87,6 +87,8 @@ options_notebook.add( rule_frame, text="Zasada" )
 p = ttk.Panedwindow( rule_frame, orient=HORIZONTAL )
 p.grid( )
 
+output_states = []
+
 for i in range( 8 ):
    frame_label = str( i + 1 )
    frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
@@ -112,6 +114,8 @@ for i in range( 8 ):
 
    rectangle_id = after_iteration.create_rectangle( (0, 0, 30, 30), fill=color, outline=color )
 
+   output_states.append( {'canvas': after_iteration, 'rec_id': rectangle_id} )
+
 
    def local_bind ( number):
       return lambda x: automata.change_single_rule( number )
@@ -127,10 +131,22 @@ def update_rule ( *args):
    automata.new_number_rule( spin_rule_number.get( ) )
 
 
+def update_outputs_of_rule (*args):
+   for i in range( len( output_states ) ):
+      if automata.rule_state( i ):
+         color = "red"
+      else:
+         color = "pink"
+      rec_id = output_states[i]['rec_id']
+      canvas = output_states[i]['canvas']
+
+      canvas.itemconfigure( rec_id, fill=color, outline=color )
+
+
 spin_rule_number = tkinter.IntVar( value=automata.rule._number )
 automata.add_rule_obserwer( spin_rule_number )
+spin_rule_number.trace( "w", update_outputs_of_rule )  # needs to be before update_rule!!!
 spin_rule_number.trace( "w", update_rule )
-#TODO new trace write to single rules display update display
 
 spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number )
 p.add( spin )

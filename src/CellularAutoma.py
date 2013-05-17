@@ -131,6 +131,10 @@ class Rule( ):
       self._rules = create_rules_from( number )
 
 
+   def state_for (self, i):
+      return self._rules[i]
+
+
 def calculate_next_state (cells, rule):
    newCells = Cells( len( cells ) )
    for i in range( len( cells ) ):
@@ -265,6 +269,10 @@ class Automata( ):
 
    def state_for_cells (self, prev_cells):
       return self.rule.resolve( prev_cells )
+
+
+   def rule_state (self, i):
+      return self.rule.state_for( i )
 
 
 if __name__ == "__main__":
