@@ -179,6 +179,7 @@ class Automata( ):
       self.rule = rule
       self.cells = []
       self.add( cells )
+      self._rule_obserwers = []
 
 
    def iterate_cells (self):
@@ -196,9 +197,7 @@ class Automata( ):
 
 
    def new_random_rule (self, args):
-      number = random.randint( 0, 255 )
-      self.rule = Rule( number )
-      print( number )
+      self.new_number_rule( random.randint( 0, 255 ) )
 
 
    def new_number_rule (self, number):
@@ -206,6 +205,7 @@ class Automata( ):
       number = min( number, 255 )
 
       self.rule = Rule( number )
+      self.update_rule_obserwers( )
 
 
    def increase_column_size (self, args):
@@ -238,6 +238,15 @@ class Automata( ):
 
    def new_one_cell (self, args):
       self.add( new_cells_with_one_true( self.columns ) )
+
+
+   def add_rule_obserwer (self, spin_rule_number):
+      self._rule_obserwers.append( spin_rule_number )
+
+
+   def update_rule_obserwers (self):
+      for obserwer in self._rule_obserwers:
+         obserwer.set( self.rule._number )
 
 
 if __name__ == "__main__":

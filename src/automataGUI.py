@@ -116,6 +116,7 @@ def update_rule ( *args):
 
 spin_rule_number = tkinter.IntVar( value=automata.rule._number )
 spin_rule_number.trace( "w", update_rule )
+automata.add_rule_obserwer( spin_rule_number )
 
 spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number )
 p.add( spin )
