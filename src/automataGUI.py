@@ -110,13 +110,14 @@ for i in range( 8 ):
    p.add( frame )
 
 
-def update_rule ():
+def update_rule ( *args):
    automata.new_number_rule( spin_rule_number.get( ) )
 
 
 spin_rule_number = tkinter.IntVar( value=automata.rule._number )
+spin_rule_number.trace( "w", update_rule )
 
-spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number, command=update_rule )
+spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number )
 p.add( spin )
 
 cells_frame = ttk.Frame( options_notebook )
