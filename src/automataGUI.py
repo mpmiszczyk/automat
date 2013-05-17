@@ -21,7 +21,6 @@ canvas.grid( column=0, row=0, sticky=(N, W, E, S) )
 
 rectangle_color = 'red'
 
-# TODO random initialize
 automata = Automata( cells_from_string( "____#__#__#______###__##_#" ),
                      Rule( 90 ),
                      rows=50 )
@@ -33,6 +32,7 @@ def draw (cells, canvas, cell_size=5):
    :param cells: instance of :class:'CellularAutoma.Cells'
    :param canvas: instance of :class:'tkinter.Canvas'
    """
+
    canvas.delete( ALL )
    for row_number in range( len( cells ) ):
       for cell_number in range( len( cells[row_number] ) ):
@@ -94,7 +94,6 @@ for i in range( 8 ):
    frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
    frame.grid( )
 
-   #TODO teraz trzeba wyrysować pojedyńcze źródła zasad (z cyferki)
    label = ttk.Label( frame, text="Sąsiedzi przed:" )
    label.grid( )
    before_iteration = Canvas( frame, width=60, height=20, background="white" )
@@ -102,7 +101,6 @@ for i in range( 8 ):
    draw( [prev_cells], before_iteration, cell_size=20 )
    before_iteration.grid( )
 
-   #TODO i później dodać jeszcze klikalny wyznacznik zasady
    second_label = ttk.Label( frame, text="Komórka po:" )
    second_label.grid( )
    after_iteration = Canvas( frame, width=30, height=30 )

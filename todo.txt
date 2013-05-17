@@ -1,6 +1,4 @@
 TODO możliwość usatawieni nowych wartości pól dla kolejnej iteracji
 TODO kolorowanie wyświetlanego automatu w zależności od reguły
-TODO zmiana związanych zmiennych w spin box-ie przy zmianie numery reguły (np przy random rule)
-TODO reguła może być przedstawiona jako zwykła liczba, lub jako binarny ciąg pomniejszych regół
 TODO automatyczne zmienianie regóły i/lub losowe inicjalizowanie nowych pól po stabilizacji
 TODO rozpozanwanie stanów stabilnych == powtarzających się ciągów iteracji
