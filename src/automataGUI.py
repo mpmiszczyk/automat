@@ -87,6 +87,11 @@ options_notebook.add( rule_frame, text="Zasada" )
 p = ttk.Panedwindow( rule_frame, orient=HORIZONTAL )
 p.grid( )
 
+
+def change_single_rule (i):
+   print( "zmiana: " + str( i ) )
+
+
 for i in range( 8 ):
    frame_label = str( i + 1 )
    frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
@@ -104,8 +109,16 @@ for i in range( 8 ):
    second_label = ttk.Label( frame, text="Komórka po:" )
    second_label.grid( )
    after_iteration = Canvas( frame, width=30, height=30 )
-   prev_cells = number_to_cells( i )
-   draw( [prev_cells], after_iteration, cell_size=30 )
+
+   rectangle_id = after_iteration.create_rectangle( (0, 0, 30, 30), fill=rectangle_color, outline=rectangle_color )
+
+
+   def local_bind ( number):
+      return lambda x: change_single_rule( number )
+
+
+   after_iteration.tag_bind( rectangle_id, "<Button-1>", local_bind( i ) )
+
    after_iteration.grid( )
    p.add( frame )
 
