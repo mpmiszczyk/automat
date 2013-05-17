@@ -263,6 +263,10 @@ class Automata( ):
       self.new_number_rule( new_rule_number )
 
 
+   def state_for_cells (self, prev_cells):
+      return self.rule.resolve( prev_cells )
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True

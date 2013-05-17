@@ -105,7 +105,12 @@ for i in range( 8 ):
    second_label.grid( )
    after_iteration = Canvas( frame, width=30, height=30 )
 
-   rectangle_id = after_iteration.create_rectangle( (0, 0, 30, 30), fill=rectangle_color, outline=rectangle_color )
+   if automata.state_for_cells( prev_cells ):
+      color = "red"
+   else:
+      color = "pink"
+
+   rectangle_id = after_iteration.create_rectangle( (0, 0, 30, 30), fill=color, outline=color )
 
 
    def local_bind ( number):
