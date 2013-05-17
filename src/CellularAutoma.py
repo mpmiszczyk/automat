@@ -249,6 +249,20 @@ class Automata( ):
          obserwer.set( self.rule._number )
 
 
+   def change_single_rule (self, number):
+
+      rules = self.rule._rules.copy( )
+
+      rules[number] = not rules[number]
+
+      new_rule_number = 0
+      for i in range( len( rules ) ):
+         if rules[i]:
+            new_rule_number += 2 ** i
+
+      self.new_number_rule( new_rule_number )
+
+
 if __name__ == "__main__":
    cells = Cells( 100 )
    cells[50] = True
