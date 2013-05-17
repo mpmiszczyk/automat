@@ -1,5 +1,6 @@
 # from tkinter import *
 from tkinter import ttk, Tk, Canvas, ALL, N, W, E, S, HORIZONTAL
+import tkinter
 from CellularAutoma import cells_from_string, Rule, Automata
 
 
@@ -90,7 +91,25 @@ p.grid( )
 for i in range( 8 ):
    frame_label = str( i + 1 )
    frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
+   frame.grid( )
+   label = ttk.Label( frame, text="Sąsiedzi przed:" )
+   label.grid( )
+   before_iteration = Canvas( frame, width=30, height=10 )
+   #TODO teraz trzeba wyrysować pojedyńcze źródła zasad (z cyferki)
+   before_iteration.grid( )
+
+   #TODO i później dodać jeszcze klikalny wyznacznik zasady
    p.add( frame )
+
+
+def update_rule ():
+   automata.new_number_rule( spin_rule_number.get( ) )
+
+
+spin_rule_number = tkinter.IntVar( value=automata.rule._number )
+
+spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number, command=update_rule )
+p.add( spin )
 
 cells_frame = ttk.Frame( options_notebook )
 options_notebook.add( cells_frame, text="Komórki" )
