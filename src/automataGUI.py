@@ -92,16 +92,22 @@ for i in range( 8 ):
    frame_label = str( i + 1 )
    frame = ttk.Labelframe( p, text=frame_label, width=100, height=100 )
    frame.grid( )
-   label = ttk.Label( frame, text="Sąsiedzi przed:" )
-   label.grid( )
 
    #TODO teraz trzeba wyrysować pojedyńcze źródła zasad (z cyferki)
+   label = ttk.Label( frame, text="Sąsiedzi przed:" )
+   label.grid( )
    before_iteration = Canvas( frame, width=30, height=10 )
    prev_cells = number_to_cells( i )
    draw( [prev_cells], before_iteration )
    before_iteration.grid( )
 
    #TODO i później dodać jeszcze klikalny wyznacznik zasady
+   second_label = ttk.Label( frame, text="Komórka po:" )
+   second_label.grid( )
+   after_iteration = Canvas( frame, width=30, height=10 )
+   prev_cells = number_to_cells( i )
+   draw( [prev_cells], after_iteration )
+   after_iteration.grid( )
    p.add( frame )
 
 
@@ -115,7 +121,6 @@ spin = tkinter.Spinbox( p, from_=0, to=255, textvariable=spin_rule_number, comma
 p.add( spin )
 
 cells_frame = ttk.Frame( options_notebook )
-options_notebook.add( cells_frame, text="Komórki" )
 
 root.after( TIME_STEP, task )
 root.mainloop( )
