@@ -1,7 +1,7 @@
 # from tkinter import *
 from tkinter import ttk, Tk, Canvas, ALL, N, W, E, S, HORIZONTAL
 import tkinter
-from CellularAutoma import cells_from_string, Rule, Automata
+from CellularAutoma import cells_from_string, Rule, Automata, number_to_cells
 
 
 TIME_STEP = 100
@@ -94,8 +94,11 @@ for i in range( 8 ):
    frame.grid( )
    label = ttk.Label( frame, text="Sąsiedzi przed:" )
    label.grid( )
-   before_iteration = Canvas( frame, width=30, height=10 )
+
    #TODO teraz trzeba wyrysować pojedyńcze źródła zasad (z cyferki)
+   before_iteration = Canvas( frame, width=30, height=10 )
+   prev_cells = number_to_cells( i )
+   draw( [prev_cells], before_iteration )
    before_iteration.grid( )
 
    #TODO i później dodać jeszcze klikalny wyznacznik zasady
