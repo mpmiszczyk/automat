@@ -10,13 +10,13 @@ class TestCells( TestCase ):
    def test_default_initialization (self):
       cells = Cells( )
 
-      self.assertEqual( cells.size( ), 100 )
+      self.assertEqual( len( cells ), 100 )
 
 
    def test_create_shorter_cells (self):
       cells = Cells( 5 )
 
-      self.assertEqual( cells.size( ), 5 )
+      self.assertEqual( len( cells ), 5 )
 
 
    def test_cells_outside_of_size_are_false (self):
@@ -29,18 +29,18 @@ class TestCells( TestCase ):
       cells = Cells( 5 )
 
       _ = cells[10]
-      self.assertEqual( cells.size( ), 5 )
+      self.assertEqual( len( cells ), 5 )
 
 
    def test_able_to_set_values_outside_size (self):
       cells = Cells( 5 )
 
-      self.assertEqual( cells.size( ), 5 )
+      self.assertEqual( len( cells ), 5 )
 
       some = Some( )
       cells[10] = some
 
-      self.assertEqual( cells.size( ), 11 )
+      self.assertEqual( len( cells ), 11 )
       self.assertIs( cells[10], some )
 
 
@@ -83,7 +83,7 @@ class TestGettingNeighbors( TestCase ):
 
 
    def test_handling_neighbours_of_last_element (self):
-      neighbours = self.cells.neighbors_of( self.cells.size( ) - 1 )
+      neighbours = self.cells.neighbors_of( len( self.cells ) - 1 )
 
       self.assertEqual( neighbours[0], self.cells[-2] )
       self.assertEqual( neighbours[1], self.cells[-1] )

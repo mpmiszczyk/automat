@@ -1,5 +1,5 @@
 from unittest import TestCase
-from CellularAutoma import Rule, create_rules_from, cells_to_number
+from CellularAutoma import Rule, create_rules_from, cells_to_number, number_to_cells
 
 
 class TestRule( TestCase ):
@@ -79,4 +79,20 @@ class TestRule( TestCase ):
 
       for i in range( 8 ):
          self.assertEqual( i, cells_to_number( all_cells[i] ) )
+
+
+   def test_changing_cells_to_number_from_zero (self):
+      all_cells = [[False, False, False],
+                   [False, False, True],
+                   [False, True, False],
+                   [False, True, True],
+                   [True, False, False],
+                   [True, False, True],
+                   [True, True, False],
+                   [True, True, True]]
+
+      for i in range( 8 ):
+         self.assertEqual( all_cells[i], number_to_cells( i ) )
+
+
 

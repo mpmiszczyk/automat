@@ -102,6 +102,20 @@ def cells_to_number (cells):
    return 0
 
 
+def number_to_cells ( number):
+   cell_values = [False, True]
+   i = 0
+
+   for first in cell_values:
+      for second in cell_values:
+         for third in cell_values:
+            if number == i:
+               return [first, second, third]
+            i += 1
+
+   return [False, False, False]
+
+
 class Rule( ):
    def __init__ (self, number):
       self.set_number( number )

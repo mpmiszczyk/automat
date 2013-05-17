@@ -15,7 +15,7 @@ class TestCellularCalculation( TestCase ):
    def test_new_cells_have_same_size_as_the_old_ones (self):
       self.new_cells = calculate_next_state( self.cells, self.rule )
 
-      self.assertEqual( self.new_cells.size( ), self.cells.size( ) )
+      self.assertEqual( len( self.new_cells ), len( self.cells ) )
 
 
    def test_new_value_depends_on_value_returned_by_rule_resolve (self):
